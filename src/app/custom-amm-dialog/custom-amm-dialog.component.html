@@ -1,0 +1,14 @@
+<div mat-dialog-content>
+    <p>Custom Ammount:</p>
+    <hr class="mb-4">
+    <form [formGroup]="customForm" (ngSubmit)="enter()">
+        <input id="ammount" type="number" class="form-control"  formControlName="ammount">
+        <div class="form-text text-danger" *ngIf="Ammount.errors?.['required'] && Ammount.touched">
+            Invalid Number.
+        </div>  
+        <div mat-dialog-actions style="display: flex; justify-content: center;margin-top: 10px;">    
+            <button mat-raised-button (click)="onCancel()" style="margin-right: 30px;">Cancel</button>
+            <button mat-raised-button color="primary" type="submit" >Enter</button>
+        </div> 
+    </form>  
+</div>

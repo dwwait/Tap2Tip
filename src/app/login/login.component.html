@@ -1,0 +1,43 @@
+<div class="logincontainer">
+    <div class="card" >
+        <div class="card-body">
+            <h1 class="card-title text-center p-2 bg-light mb-4">Login</h1>            
+            <form id="loginForm" [formGroup]="loginForm" (ngSubmit)="login()"  autocomplete="off" >
+                <div style="display: flex; flex-direction: column;">
+                    <label class="mb-2" for="email" >Email</label>
+                    <div class="mb-2">
+                        <input type="email" id="email" formControlName="email" class="form-control mb-2" />
+                        <div class="text-danger "  *ngIf="Email.errors?.['required'] && (Email.touched || Email.dirty)">
+                            The Email field is required.
+                        </div>
+                        <div class="form-text text-danger" *ngIf="Email.errors?.['email'] && (Email.touched || Email.dirty)">
+                            Invalid Email.
+                        </div>
+                    </div>
+                    <label for="password" class="mb-2">Password</label>
+                    <div >
+                        <input type="password" id="password" formControlName="password" class="form-control" />
+                        <div class="text-danger "  *ngIf="PWD.errors?.['required'] && (PWD.touched || PWD.dirty)">
+                            Password is required.
+                        </div>
+                    </div>  
+                </div>           
+        
+                <div class="row mt-4 mb-3">
+                    <div class="d-grid">                 
+                        <button id="btnLogin" type="submit" mat-raised-button color="primary" [disabled]="loginForm.invalid">Login</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="mb-4" style="text-align: center;">
+            <p style="font-size: 20px;">Don't have an account?</p>
+            <button mat-raised-button color="primary" class="mb-4" (click)="gotoRegister()">Sign up for free</button>
+            <p style="font-size: 20px;">Are you having issues logging in?</p>
+            <button mat-raised-button color="primary" (click)="resetPW()">Reset your password</button>
+        </div>
+        
+        
+    </div>
+</div>
+

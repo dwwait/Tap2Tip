@@ -1,0 +1,35 @@
+<div mat-dialog-content>
+    <div id="qrheadercontainer" style="display: flex; width: 105%;">
+        <span id="qrdialogHeader">Scan QR</span>       
+        <button id="btnclose" (click)="onCancel();action.stop()" style="margin-left: auto; " mat-icon-button color="primary"  aria-label="Close">
+            <mat-icon>highlight_off</mat-icon>
+        </button>
+    </div>  
+    <hr>
+    <div class="corners mb-3">
+        <div class="top left"></div>
+        <div class="top right"></div>
+        <div class="bottom right"></div>
+        <div class="bottom left"></div>
+        <!-- For camera  (scanSuccess)="onCodeResult($event)"-->
+        <ngx-scanner-qrcode #action="scanner"
+        (event)="onEvent(action.data.value)"
+        (error)="onError($event)"
+        (scanSuccess)="onCodeResult($event);action.stop();">
+
+        </ngx-scanner-qrcode>
+    </div>
+    
+    <!-- Loading -->
+    <p *ngIf="action.isLoading">⌛ Loading...</p>
+
+    <!-- start -->
+    <button mat-raised-button color="primary" (click)="action.isStart ? action.stop() : action.start()">{{action.isStart ? 'Stop' : 'Start'}}</button>
+
+    <!-- data  -->
+    <!--<span>{{ action.data.value | json }}</span> value -->
+    <span>{{ output }}</span><!-- value -->
+    <!--<span>{{ action.data.value }}</span> -->
+    <!-- value -->
+    <!--<span>{{ action.data | async | json }}</span>async value -->
+</div>

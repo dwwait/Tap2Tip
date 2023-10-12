@@ -1,0 +1,12 @@
+.registercontainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 92vh;
+}
+.card{
+    width: 90vw;
+    max-width: 400px;
+}

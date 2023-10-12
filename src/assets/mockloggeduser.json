@@ -1,0 +1,11 @@
+[
+    {
+        "firstName": "Douglas",
+        "lastName": "Wait",
+        "email": "dw@email.com",
+        "address": "24 Main Road",
+        "cellNumber": "0123456789",
+		"rating": 5,
+        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tristique tincidunt venenatis. Phasellus tincidunt aliquam nibh mollis ullamcorper. Integer a ipsum at lacus mollis tincidunt a vel ipsum. Nullam sed metus porta, sagittis magna quis, imperdiet ipsum. Phasellus faucibus mi quis feugiat placerat. Ut placerat, ipsum ac accumsan vehicula, dui nibh finibus augue, eget cursus sapien ex sed leo. Nulla convallis orci non arcu mollis ultrices. Vestibulum tempor non sapien ac sodales. Sed ac mauris ac libero dictum finibus. Mauris rhoncus neque ut bibendum viverra. Mauris a fringilla mauris, ut bibendum tortor. Mauris euismod iaculis enim mattis rutrum. Vivamus suscipit massa placerat, hendrerit metus ut, consequat ex. Vestibulum vitae commodo nisi. Nullam pellentesque sollicitudin lacus ac rhoncus."
+    }
+]

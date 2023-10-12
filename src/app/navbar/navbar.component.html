@@ -1,0 +1,15 @@
+<nav>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+        <i class="fa fa-bars"></i>
+    </label>
+    <label class="logo">Tap2Tip</label>
+    <ul>
+        <li><a [ngClass]="{'active': activeNav[0]}" (click)="toggleActive(0)" href="#">Home</a></li>
+        <li><a [ngClass]="{'active': activeNav[1]}" href="#" (click)="toggleActive(1)">Info</a></li>
+        <li><a [ngClass]="{'active': activeNav[2]}" href="#" (click)="toggleActive(2)">Services</a></li>
+        <li><a [ngClass]="{'active': activeNav[3]}" href="#" (click)="toggleActive(3)">Contact</a></li>
+        <li><a [ngClass]="{'active': activeNav[4]}" href="/login" (click)="toggleActive(4)">Login</a></li>
+        <li><a [ngClass]="{'active': activeNav[5]}" id="register" href="/register" (click)="toggleActive(5)">Register</a></li>
+    </ul>
+</nav>

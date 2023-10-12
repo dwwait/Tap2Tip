@@ -1,0 +1,74 @@
+<div class="homecontainer">   
+    <div class="topcontainer">
+        <div class="input-group">
+            <input class="form-control" type="search" placeholder="Search number" id="search">
+            <span class="input-group-append">
+              <button class="btn btn-outline-secondary" type="button" (click)="searchContact()">
+                  <i class="fa fa-search"></i>
+              </button>
+            </span>
+        </div>
+        <button mat-mini-fab style="margin-left: 10px;" color="primary" (click)="openQRDialog()">
+            <span class="material-icons">qr_code</span>
+        </button>
+        <button mat-mini-fab style="margin-left: 10px;" color="primary" (click)="openNFCDialog()">
+            <span class="material-icons">nfc</span>
+        </button>
+    </div>
+    <mat-divider></mat-divider> 
+    <div class="contactcontainer">      
+      <div id="mycard" *ngIf="searchedUser == '' && nouserfound == false" class="card-container" (click)="flip()">
+        <div class="flip-card" [ngClass]="{'flip': flipped}">
+          <div class="flip-card-front">               
+            <img class="cardimg" src='./assets/images/User-Icon.jpg' alt="contact">                
+            <span class="cardheader">{{loggedInUser.firstName}} {{loggedInUser.lastName}}</span>
+            <span class="cardsub">{{loggedInUser.address}}</span>
+            <span class="cardsub">Rating: {{loggedInUser.rating}}</span>
+          </div>
+          <div class="flip-card-back">
+            <span class="cardheader">[{{loggedInUser.shortCode}}]</span>
+            <span class="cardsub">{{loggedInUser.cellNumber}}</span>
+            <img class="cardimgqr" src='./assets/images/QRexample.png' alt="contact">
+          </div>
+        </div>
+      </div>
+      <div  id="usercard" *ngIf="searchedUser != ''" class="card-container" (click)="flip()">
+        <div class="flip-card" [ngClass]="{'flip': flipped}">
+          <div class="flip-card-front">      
+            <button (click)="removeSearchContact()" style="margin-left: auto;" mat-icon-button color="primary">
+              <mat-icon>highlight_off</mat-icon>
+            </button>
+            <img class="cardimg invertmargin" src='./assets/images/User-Icon.jpg' alt="contact">    
+            <span class="cardheader">{{searchedUser.firstName}} {{searchedUser.lastName}}</span>
+            <span class="cardsub">{{searchedUser.address}}</span>
+            <span class="cardsub">Rating: {{searchedUser.rating}}</span>
+          </div>
+          <div class="flip-card-back">
+            <span class="cardheader">[{{searchedUser.shortCode}}]</span>
+            <span class="cardsub">{{searchedUser.cellNumber}}</span>
+            <img class="cardimgqr" src='./assets/images/QRexample.png' alt="contact">
+          </div>
+        </div>          
+      </div>   
+      <div *ngIf="nouserfound == true" class="card-container">
+        <div class="flip-card" [ngClass]="{'flip': flipped}">
+          <div class="flip-card-front">      
+            <button (click)="removeSearchContact()" style="margin-left: auto;" mat-icon-button color="primary">
+              <mat-icon>highlight_off</mat-icon>
+            </button>
+            <img class="cardimg invertmargin" src='./assets/images/User-Icon.jpg' alt="contact">    
+            <span class="cardheader text-danger">No User Found</span>
+            <span *ngIf="isValidNr" class="cardsub">{{searchVal}}</span>
+            <span *ngIf="!isValidNr" class="cardsub text-danger">Invalid Number: {{searchVal}}</span>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="nouserfound == true || searchedUser != ''" class="tipbuttons">
+        <button mat-raised-button color="primary" [disabled]="!isValidNr" class="matbtn">Tip: R10</button>
+        <button mat-raised-button color="primary" [disabled]="!isValidNr" class="matbtn">Tip: R20</button>
+        <button mat-raised-button color="primary" [disabled]="!isValidNr" class="matbtn">Tip: R50</button>
+        <button mat-raised-button color="primary" (click)="openCustomAmmDialog()" [disabled]="!isValidNr" class="matbtn">Custom: R{{customAmm}}</button>
+      </div>
+    </div>
+</div>
+
